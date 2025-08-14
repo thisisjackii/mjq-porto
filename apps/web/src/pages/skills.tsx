@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SkillFilter from '@/components/SkillFilter';
 import ErrorMessage from '@/components/ErrorMessage';
 import EmptyState from '@/components/EmptyState';
+import { getApiBaseUrl } from '@/lib/api';
 
 type Skills = {
     languages: string[];
@@ -62,9 +63,9 @@ export default function SkillsPage({ skills, error }: Readonly<Props>) {
 
 export async function getStaticProps() {
     try {
-        const res = await fetch('/api/skills');
+        const res = await fetch(`${getApiBaseUrl()}/api/skills`);
         if (!res.ok) {
-            return { props: { skills: {}, error: `Failed to fetch skills. API status: ${res.status}.` } };
+            return { props: { skills: {}, error: `Failed to fetch skills.API status: ${res.status}.` } };
         }
         const skills = await res.json();
         return { props: { skills }, revalidate: 3600 };

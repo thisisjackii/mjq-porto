@@ -1,3 +1,4 @@
+import { getApiBaseUrl } from '@/lib/api';
 import { useState, FormEvent } from 'react';
 
 
@@ -33,7 +34,7 @@ export default function ContactPage() {
         };
 
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch(`${getApiBaseUrl()}/api/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(submission),

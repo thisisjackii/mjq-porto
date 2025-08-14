@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { getApiBaseUrl } from '@/lib/api';
 
 type Props = {
     source: MDXRemoteSerializeResult;
@@ -17,7 +18,7 @@ export default function ProjectDetailsPage({ source, frontmatter }: Readonly<Pro
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await fetch('/api/projects');
+    const res = await fetch(`${getApiBaseUrl()}/api/projects`);
     const projects = await res.json();
     const paths = projects.map((p: { slug: string }) => ({
         params: { slug: p.slug },
@@ -26,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const res = await fetch(`/api/projects/${params?.slug}`);
+    const res = await fetch(`/ api / projects / ${params?.slug}`);
     if (!res.ok) {
         return { notFound: true };
     }

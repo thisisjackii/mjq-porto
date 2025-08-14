@@ -1,6 +1,7 @@
 import BlogCard from '@/components/BlogCard';
 import ErrorMessage from '@/components/ErrorMessage';
 import EmptyState from '@/components/EmptyState';
+import { getApiBaseUrl } from '@/lib/api';
 
 export type Post = {
     slug: string;
@@ -37,9 +38,9 @@ export default function BlogPage({ posts, error }: Readonly<Props>) {
 
 export async function getStaticProps() {
     try {
-        const res = await fetch('/api/blog');
+        const res = await fetch(`${getApiBaseUrl()}/api/blog`);
         if (!res.ok) {
-            return { props: { posts: [], error: `Failed to fetch posts. API status: ${res.status}.` } };
+            return { props: { posts: [], error: `Failed to fetch posts.API status: ${res.status}.` } };
         }
         const posts = await res.json();
         return { props: { posts }, revalidate: 60 };

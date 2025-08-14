@@ -1,6 +1,7 @@
 import ProjectCard from '@/components/ProjectCard';
 import ErrorMessage from '@/components/ErrorMessage';
 import EmptyState from '@/components/EmptyState';
+import { getApiBaseUrl } from '@/lib/api';
 
 export type Project = {
     slug: string;
@@ -38,13 +39,13 @@ export default function ProjectsPage({ projects, error }: Readonly<Props>) {
 
 export async function getStaticProps() {
     try {
-        const res = await fetch('/api/projects');
+        const res = await fetch(`${getApiBaseUrl()}/api/projects`);
         if (!res.ok) {
 
             return {
                 props: {
                     projects: [],
-                    error: `Failed to fetch projects. The API returned a status of ${res.status}.`
+                    error: `Failed to fetch projects.The API returned a status of ${res.status}.`
                 },
             };
         }
