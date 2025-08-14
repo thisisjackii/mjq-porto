@@ -14,8 +14,8 @@ This is a monorepo for a personal portfolio website built with Next.js (frontend
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/thsisjackii/mjq-porto.git
+   cd mjq-porto
    ```
 2. Install dependencies in the root and workspace apps:
    ```bash
