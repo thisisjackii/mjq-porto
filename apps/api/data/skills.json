@@ -1,0 +1,6 @@
+{
+  "languages": ["JavaScript", "TypeScript", "Python", "HTML5", "CSS3"],
+  "frameworks": ["React", "Next.js", "NestJS", "Express.js", "Django"],
+  "databases": ["PostgreSQL", "MongoDB", "Redis"],
+  "tools": ["Docker", "Git", "GitHub Actions", "Vercel", "Render"]
+}

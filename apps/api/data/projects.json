@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "sample-project",
+    "title": "Sample Project",
+    "description": "A brief description of this amazing sample project.",
+    "tags": ["Next.js", "NestJS", "Tailwind CSS"],
+    "imageUrl": "https://placehold.co/400x250/png"
+  },
+  {
+    "slug": "another-project",
+    "title": "Another Cool Project",
+    "description": "This project showcases another set of skills and technologies.",
+    "tags": ["React", "Node.js", "GraphQL"],
+    "imageUrl": "https://placehold.co/400x250/png"
+  }
+]
