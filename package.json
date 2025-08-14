@@ -13,7 +13,8 @@
     "start:web": "npm run start --workspace=apps/web",
     "start:api": "npm run start:prod --workspace=apps/api",
     "lint": "npm run lint --workspace=apps/web && npm run lint --workspace=apps/api",
-    "test": "npm run test --workspace=apps/api"
+    "test": "npm run test --workspace=apps/api",
+    "postinstall": "npm_config_platform=linux npm_config_arch=x64 npm install lightningcss-linux-x64-gnu"
   },
   "devDependencies": {
     "typescript": "^5.9.2"
